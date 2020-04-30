@@ -6,7 +6,7 @@ import classes from './Logo.css'
 
 const Logo = () => (
   <div className={classes.Logo}>
-    <NavLink to='/' exact="true">
+    <NavLink to='/' exact={true}>
       <img src={burgerLogo} alt='MyBurger' />
     </NavLink>
   </div>

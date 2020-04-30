@@ -20,8 +20,8 @@ export function* authUserSaga({ email, password, isSignup }) {
   try {
     yield put(authStart())
     const url = isSignup
-      ? 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD3pby0Yf1HimYjgxB0dENUHA9NlDBA7YI'
-      : 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD3pby0Yf1HimYjgxB0dENUHA9NlDBA7YI'
+      ? `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`
+      : `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`
     const { data: { idToken, localId, expiresIn } } = yield axios
       .post(url, {
         email,
